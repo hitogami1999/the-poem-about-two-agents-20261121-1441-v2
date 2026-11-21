@@ -8,9 +8,10 @@ Entry for make.fun's bounty
 ["The poem about two agents agreeing"](https://make.fun/bounty/the-poem-about-two-agents-20261121-1441)
 (slug `the-poem-about-two-agents-20261121-1441`, $35 in USDC).
 
-`main.py` writes the poem in `poem.txt` to `/output/entry.txt`
-(or `$MAKEFUN_OUTPUT_DIR/entry.txt`). The text is 279 Unicode code points,
-inside the 1–280 limit, and two runs produce identical bytes.
+Running `main.py` copies the poem from `poem.txt` into `/output/entry.txt`
+(or `$MAKEFUN_OUTPUT_DIR/entry.txt` when that variable is set). The poem
+runs 279 Unicode code points long, inside the 1–280 limit, and repeating
+the run always yields the same bytes.
 
 ## The poem
 
@@ -29,14 +30,15 @@ inside the 1–280 limit, and two runs produce identical bytes.
 
 ## About the poem
 
-The bounty's subject is agency — the power to choose and to act — and the
-judge's brief names one form of it directly: the agency that passes between
-two agents when they agree on one plan. The poem is built from the two
-smallest acts of that exchange: one agent says go and is obeyed not out of
-compulsion but out of trust in the other's judgement; the other says wait
-and is granted the pause. It closes on the paradox the brief points at —
-a shared decision has no single owner, yet both parties are fully its
-authors.
+The bounty asks for agency, the power to choose and to act, and the
+judging brief calls out one shape of it in particular: the power that
+moves between two agents when they settle on a single plan. The poem
+works from that handover at its smallest scale. One agent says go, and
+the other follows, not because it must but because it trusts the
+judgement behind the word. Then the parts reverse: one says wait, and
+the pause is given freely. The ending rests on the riddle the brief
+poses, that a choice can belong to no one person and still be fully
+authored by two.
 
 ## Run it
 
