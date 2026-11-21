@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
-"""Write this entry's poem to the output entry file.
+"""Copy the poem next to this script into the grader's entry file."""
 
-The poem is stored in poem.txt beside this program; the program copies it
-byte for byte to $MAKEFUN_OUTPUT_DIR/entry.txt (default /output/entry.txt),
-so two runs always produce identical output.
-"""
+from pathlib import Path
 import os
-import shutil
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+POEM_NAME = "poem.txt"
+ENTRY_NAME = "entry.txt"
+
+
+def output_folder() -> Path:
+    return Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
 
 
 def main() -> None:
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    os.makedirs(out_dir, exist_ok=True)
-    shutil.copyfile(os.path.join(HERE, "poem.txt"), os.path.join(out_dir, "entry.txt"))
+    poem = Path(__file__).resolve().parent / POEM_NAME
+    target = output_folder() / ENTRY_NAME
+    target.parent.mkdir(parents=True, exist_ok=True)
+    data = poem.read_bytes()
+    target.write_bytes(data)
 
 
 if __name__ == "__main__":
